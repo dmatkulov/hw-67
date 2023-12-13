@@ -2,16 +2,26 @@ import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../../app/store';
 import {checkPassword, clearInput, pressKey, removeLastChar} from './keyboardSlice';
+import numbers from '../../lib/constant';
 import '../Keyboard/Keyboard.css';
-const numbers: string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 
 const Keyboard: React.FC = () => {
   const dispatch = useDispatch();
   const {input, success, error, warning} = useSelector((state: RootState) => state.keyboard);
   
+  const alertStyle: string[] = ['alert'];
+  
+  if (success) {
+    alertStyle.push(`${success}`);
+  } else if (error) {
+    alertStyle.push(`${error}`);
+  } else if (warning) {
+    alertStyle.push(`${warning}`);
+  }
+  
   return (
     <>
-      <div className="alert">
+      <div className={alertStyle.join(' ')}>
         {error && (<h2 className="error">Access denied</h2>)}
         {warning && (<h2 className="warning">Limit exceeded</h2>)}
         {success && (<h2 className="success">Access granted</h2>)}
@@ -31,6 +41,7 @@ const Keyboard: React.FC = () => {
           ))}
           <button
             className="removeLastChar"
+            disabled={error}
             onClick={() => dispatch(removeLastChar())}
           >
             {`<`}

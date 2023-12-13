@@ -8,15 +8,24 @@
 }
 
 .keyboard-app {
-  border: 1px solid #888888;
   padding: 20px;
   border-radius: 16px;
-  background-color: white;
+  background-color: #f5f5f5;
 }
 
 .checkPassword {
   width: 100%;
   background-color: green;
+  color: white;
+}
+
+.clearInput {
+  background-color: crimson;
+  color: white;
+}
+
+.removeLastChar {
+  background-color: orange;
   color: white;
 }
 
@@ -29,13 +38,14 @@
   background-color: blue;
   color: white;
 }
+
 .keyboard-btn:active {
   background-color: #0404dc;
 }
 
 .input {
   padding: 12px;
-  background-color: #efefef;
+  background-color: #ffffff;
   width: 300px;
   height: 50px;
   text-align: right;
@@ -48,8 +58,25 @@
 }
 
 .alert {
-  width: 300px;
-  height: 50px;
-  padding: 12px;
+  border-radius: 16px;
   margin-bottom: 20px;
+  box-sizing: border-box;
+  padding: 20px;
+  font-size: 24px;
+  width: 100%;
+}
+
+.warning {
+  color: orange;
+  margin: 0;
+}
+
+.error {
+  color: red;
+  margin: 0;
+}
+
+.success {
+  color: green;
+  margin: 0;
 }

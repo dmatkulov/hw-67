@@ -6,7 +6,6 @@ function App() {
   return (
     <div>
       <Keyboard/>
-      App will be here
     </div>
   );
 }

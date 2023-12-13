@@ -17,13 +17,17 @@ const initialState: DoorState = {
 };
 
 export const keyboardSlice = createSlice({
-  name: 'counter',
+  name: 'keyboard',
   initialState,
   reducers: {
     pressKey: (state, action: PayloadAction<string>) => {
       if (state.warning) {
         return;
       }
+      if (state.error) {
+        return;
+      }
+      
       state.input += action.payload;
       state.warning = state.input.length > 4;
     },
