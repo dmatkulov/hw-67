@@ -1,0 +1,55 @@
+.keyboard {
+  width: 300px;
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.keyboard-app {
+  border: 1px solid #888888;
+  padding: 20px;
+  border-radius: 16px;
+  background-color: white;
+}
+
+.checkPassword {
+  width: 100%;
+  background-color: green;
+  color: white;
+}
+
+.keyboard-btn {
+  background-color: #d5d5d5;
+  color: #1a1a1a;
+}
+
+.keyboard-btn:hover {
+  background-color: blue;
+  color: white;
+}
+.keyboard-btn:active {
+  background-color: #0404dc;
+}
+
+.input {
+  padding: 12px;
+  background-color: #efefef;
+  width: 300px;
+  height: 50px;
+  text-align: right;
+  box-sizing: border-box;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.alert {
+  width: 300px;
+  height: 50px;
+  padding: 12px;
+  margin-bottom: 20px;
+}

@@ -5,6 +5,7 @@ interface DoorState {
   password: string;
   success: boolean;
   error: boolean;
+  warning: boolean;
 }
 
 const initialState: DoorState = {
@@ -12,6 +13,7 @@ const initialState: DoorState = {
   password: '1234',
   success: false,
   error: false,
+  warning: false,
 };
 
 export const keyboardSlice = createSlice({
@@ -19,10 +21,15 @@ export const keyboardSlice = createSlice({
   initialState,
   reducers: {
     pressKey: (state, action: PayloadAction<string>) => {
+      if (state.warning) {
+        return;
+      }
       state.input += action.payload;
+      state.warning = state.input.length > 4;
     },
     removeLastChar: (state) => {
       state.input = state.input.slice(0, -1);
+      state.warning = false;
     },
     checkPassword: (state) => {
       if (state.input === state.password) {
@@ -35,7 +42,8 @@ export const keyboardSlice = createSlice({
       state.input = '';
       state.success = false;
       state.error = false;
-    }
+      state.warning = false;
+    },
   }
 });
 
@@ -45,5 +53,5 @@ export const {
   pressKey,
   removeLastChar,
   checkPassword,
-  clearInput
+  clearInput,
 } = keyboardSlice.actions;
